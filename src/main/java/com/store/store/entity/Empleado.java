@@ -17,8 +17,11 @@ public class Empleado {
     private String nombre;
     private String telefono;
     private String email;
-    @Column(name = "ID_ROL")
-    private int idRol;
+
+    @ManyToOne
+    @JoinColumn(name = "id_rol", referencedColumnName = "id")
+    private Rol rol;
+
     @Column(name = "FECHA_CONTRATO")
     private Date fechaContrato;
 }
