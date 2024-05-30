@@ -10,9 +10,14 @@ import lombok.*;
 @Entity(name = "PEDIDO_PRODUCTO")
 public class PedidoProducto {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "ID_PEDIDO")
-    private int idPedido;
-    @Column(name = "ID_PRODUCTO")
-    private int idProducto;
+
+    @ManyToOne
+    @JoinColumn(name = "id_pedido", referencedColumnName = "id")
+    private Pedido pedido;
+
+    @ManyToOne
+    @JoinColumn(name = "id_producto", referencedColumnName = "id")
+    private Producto producto;
 }

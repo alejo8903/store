@@ -14,11 +14,17 @@ public class Pedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "ID_CLIENTE")
-    private int idCliente;
+
+    @ManyToOne
+    @JoinColumn(name = "id_cliente", referencedColumnName = "id")
+    private Cliente cliente;
+
     private String ocasion;
+
     @Column(name = "FECHA_ENTREGA")
     private Date fechaEntrega;
+
     private double precio;
+
     private String estado;
 }

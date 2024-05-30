@@ -15,15 +15,20 @@ public class Producto {
     private String nombre;
     private String color;
     private String variedad;
-    @Column(name = "ID_TIPO_FLOR")
-    private int idTipoFlor;
+
+    @ManyToOne
+    @JoinColumn(name = "id_tipo_flor", referencedColumnName = "id")
+    private TipoFlor tipoFlor;
+
     @Column(name = "PRECIO_VENTA")
     private double precioVenta;
+
     @Column(name = "DESCRIPCION_CUIDADO")
     private String descripcionCuidado;
+
     @Column(name = "CANTIDAD_DISPONIBLE")
     private int cantidadDisponible;
+
     @Column(name = "PRECIO_COMPRA")
     private double precioCompra;
 }
-

@@ -13,8 +13,12 @@ public class GestionEntrega {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String ruta;
-    @Column(name = "ID_PEDIDO")
-    private int idPedido;
-    @Column(name = "ID_EMPLEADO")
-    private int idEmpleado;
+
+    @ManyToOne
+    @JoinColumn(name = "id_pedido", referencedColumnName = "id")
+    private Pedido pedido;
+
+    @ManyToOne
+    @JoinColumn(name = "id_empleado", referencedColumnName = "id")
+    private Empleado empleado;
 }
