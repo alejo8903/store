@@ -7,17 +7,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
-@RequestMapping("/home")
+@RequestMapping("/")
 public class HomeController {
 
 
     @GetMapping("/")
-    public String home(){
+    public String index() {
         return "index";
     }
 
-    @GetMapping("/home")
-    public String home2(){
-        return "index2";
+    @GetMapping("/inventario")
+    public String inventario() {
+        return "fragments/inventario :: content";
+    }
+
+    @GetMapping("/generar-pedido")
+    public String generarPedido() {
+        return "fragments/generar-pedido :: content";
+    }
+
+    @GetMapping("/programar-pedidos")
+    public String programarPedidos() {
+        return "fragments/programar-pedidos :: content";
     }
 }
