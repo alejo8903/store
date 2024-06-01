@@ -23,9 +23,6 @@ public class Producto {
     @Column(name = "PRECIO_VENTA")
     private double precioVenta;
 
-    @Column(name = "DESCRIPCION_CUIDADO")
-    private String descripcionCuidado;
-
     @Column(name = "CANTIDAD_DISPONIBLE")
     private int cantidadDisponible;
 
