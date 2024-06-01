@@ -16,6 +16,7 @@ import lombok.Setter;
 @Embeddable
 public class PedidoProductoId implements Serializable {
 
+<<<<<<< HEAD
     @Column(name = "id_pedido")
     private Long idPedido;
 
@@ -39,3 +40,10 @@ public class PedidoProductoId implements Serializable {
     }
 
 }
+=======
+    private Integer idPedido;
+    private Integer idProducto;
+
+
+}
+>>>>>>> 7e366f98e3e5a4b079156422034c0f51a930b7cc

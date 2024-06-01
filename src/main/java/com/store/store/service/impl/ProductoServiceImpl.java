@@ -1,6 +1,11 @@
 package com.store.store.service.impl;
 
+<<<<<<< HEAD
 import com.store.store.entity.Producto;
+=======
+
+import com.store.store.model.Producto;
+>>>>>>> 7e366f98e3e5a4b079156422034c0f51a930b7cc
 import com.store.store.repository.ProductoRepository;
 import com.store.store.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
