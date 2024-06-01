@@ -3,91 +3,45 @@ package com.store.store.model;
 import java.math.BigDecimal;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 @Entity
 @Table(name = "productos")
 public class Producto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
+
+    @Column(nullable = false)
     private String nombre;
+
+    @Column(nullable = false)
     private String color;
+
     private String variedad;
 
-    @Column(name = "precio_venta")
-    private BigDecimal precioVenta;
+    @Column(nullable = false)
+    private Boolean disponible;
 
-    private boolean disponible;
+    @Column(nullable = false)
+    private Integer cantidadDisponible;
 
-    @Column(name = "cantidad_disponible")
-    private BigDecimal cantDisponible;
+    @Column(nullable = false)
+    private Double precioVenta;
 
-    @Column(name = "precio_compra")
-    private BigDecimal precioCompra;
+    @Column(nullable = false)
+    private Double precioCompra;
 
     @ManyToOne
-    @JoinColumn(name = "id_tipo_flor", insertable = false, updatable = false)
+    @JoinColumn(name = "id_tipo_flor", nullable = false)
     private TipoFlor tipoFlor;
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public String getVariedad() {
-        return variedad;
-    }
-
-    public void setVariedad(String variedad) {
-        this.variedad = variedad;
-    }
-
-    public BigDecimal getPrecioVenta() {
-        return precioVenta;
-    }
-
-    public void setPrecioVenta(BigDecimal precioVenta) {
-        this.precioVenta = precioVenta;
-    }
-
-    public boolean getDisponible() {
-        return disponible;
-    }
-
-    public void setDisponible(boolean disponible) {
-        this.disponible = disponible;
-    }
-
-    public BigDecimal getCantDisponible() {
-        return cantDisponible;
-    }
-
-    public void setCantDisponible(BigDecimal cantDisponible) {
-        this.cantDisponible = cantDisponible;
-    }
-
-    public BigDecimal getPrecioCompra() {
-        return precioCompra;
-    }
-
-    public void setPrecioCompra(BigDecimal precioCompra) {
-        this.precioCompra = precioCompra;
-    }
 
 }

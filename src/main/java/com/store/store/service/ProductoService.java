@@ -1,6 +1,8 @@
 package com.store.store.service;
 
-import com.store.store.entity.Producto;
+
+
+import com.store.store.model.Producto;
 
 import java.util.List;
 
