@@ -1,7 +1,8 @@
 package com.store.store.controller;
 
 
-import com.store.store.entity.Producto;
+
+import com.store.store.model.Producto;
 import com.store.store.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -43,8 +44,4 @@ public class HomeController {
         return "fragments/generar-pedido :: content";
     }
 
-    @GetMapping("/programar-pedidos")
-    public String programarPedidos() {
-        return "fragments/programar-pedidos :: content";
-    }
 }

@@ -14,28 +14,10 @@ import lombok.Setter;
 @Getter
 @Setter
 @Embeddable
-public class PedidosProductoPK implements Serializable {
+public class PedidoProductoId implements Serializable {
 
-    @Column(name = "id_pedido")
-    private Long idPedido;
+    private Integer idPedido;
+    private Integer idProducto;
 
-    @Column(name = "id_producto")
-    private Long idProducto;
-
-    public Long getIdPedido() {
-        return idPedido;
-    }
-
-    public void setIdPedido(Long idPedido) {
-        this.idPedido = idPedido;
-    }
-
-    public Long getIdProducto() {
-        return idProducto;
-    }
-
-    public void setIdProducto(Long idProducto) {
-        this.idProducto = idProducto;
-    }
 
 }
