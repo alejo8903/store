@@ -14,7 +14,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Embeddable
-public class PedidosProductoPK implements Serializable {
+public class PedidoProductoId implements Serializable {
 
     @Column(name = "id_pedido")
     private Long idPedido;
