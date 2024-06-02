@@ -2,6 +2,7 @@ package com.store.store.service.impl;
 
 
 import com.store.store.model.Pedido;
+import com.store.store.model.PedidoProducto;
 import com.store.store.repository.PedidoRepository;
 import com.store.store.service.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,4 +35,6 @@ public class PedidoServiceImpl implements PedidoService {
     public void deletePedido(Integer id) {
         pedidoRepository.deleteById(id);
     }
+
+
 }

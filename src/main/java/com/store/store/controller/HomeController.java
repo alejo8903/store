@@ -22,7 +22,8 @@ public class HomeController {
 
 
     @GetMapping("/")
-    public String index() {
+    public String index(Model model) {
+        model.addAttribute("contentTemplate", "fragments/home");
         return "index";
     }
 
@@ -30,18 +31,15 @@ public class HomeController {
     public String inventario(Model model) {
         model.addAttribute("producto", new Producto());
         model.addAttribute("productos", productoService.getAllProductos());
-        return "fragments/inventario :: content";
+        model.addAttribute("contentTemplate", "fragments/inventario");
+        return "index";
     }
 
-    @PostMapping("/inventario")
-    public String saveProducto(@ModelAttribute Producto producto) {
-        productoService.saveProducto(producto);
-        return "redirect:/inventario";
-    }
 
     @GetMapping("/generar-pedido")
-    public String generarPedido() {
-        return "fragments/generar-pedido :: content";
+    public String generarPedido(Model model) {
+        model.addAttribute("contentTemplate", "fragments/generar-pedido");
+        return "index";
     }
 
 }
