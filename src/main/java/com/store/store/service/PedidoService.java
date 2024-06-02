@@ -1,6 +1,7 @@
 package com.store.store.service;
 
 import com.store.store.model.Pedido;
+import com.store.store.model.PedidoProducto;
 
 import java.util.List;
 
@@ -13,4 +14,5 @@ public interface PedidoService {
     Pedido savePedido(Pedido pedido);
 
     void deletePedido(Integer id);
+
 }

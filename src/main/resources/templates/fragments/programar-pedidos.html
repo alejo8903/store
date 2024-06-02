@@ -34,7 +34,7 @@
             <td th:text="${pedido.estado}"></td>
             <td>
                 <a th:href="@{'/pedidos/' + ${pedido.id}}" class="btn btn-primary">Detalles</a>
-                <!-- Si deseas agregar botones para editar o eliminar, puedes hacerlo aquí -->
+                <a th:href="@{'/pedidos/asignar-despacho/' + ${pedido.id}}" class="btn btn-secondary">Asignar Despacho</a>
             </td>
         </tr>
         </tbody>
