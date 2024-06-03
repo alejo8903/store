@@ -1,7 +1,5 @@
 package com.store.store.model;
 
-import java.math.BigDecimal;
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

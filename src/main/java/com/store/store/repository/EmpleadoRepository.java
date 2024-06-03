@@ -1,10 +1,9 @@
 package com.store.store.repository;
 
-import com.store.store.model.Producto;
+import com.store.store.model.Empleado;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ProductoRepository extends JpaRepository<Producto, Integer> {
-
+public interface EmpleadoRepository extends JpaRepository<Empleado, Integer> {
 }

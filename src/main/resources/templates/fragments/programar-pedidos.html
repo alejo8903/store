@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<<<<<<< Updated upstream
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,7 +35,7 @@
             <td th:text="${pedido.estado}"></td>
             <td>
                 <a th:href="@{'/pedidos/' + ${pedido.id}}" class="btn btn-primary">Detalles</a>
-                <!-- Si deseas agregar botones para editar o eliminar, puedes hacerlo aquí -->
+                <a th:href="@{'/pedidos/asignar-despacho/' + ${pedido.id}}" class="btn btn-secondary">Asignar Despacho</a>
             </td>
         </tr>
         </tbody>
@@ -42,7 +43,65 @@
 </div>
 </div>
 </div>
+=======
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Lista de Pedidos</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            crossorigin="anonymous">
+    </head>
+    <body>
+        <div th:fragment="content">
+            <div class="container mt-4">
+                <div class="container mt-4 ">
+                    <div class="d-flex justify-content-between ">
+                        <h2>Pedidos</h2>
+                        <a name id class="btn btn-primary " href="#"
+                            role="button">add Pedido</a>
+                    </div>
+>>>>>>> Stashed changes
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Cliente</th>
+                                <th>Ocasion</th>
+                                <th>Fecha de Entrega</th>
+                                <th>Precio</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Aquí se iterará sobre la lista de pedidos para mostrar cada uno -->
+                            <tr th:each="pedido : ${pedidos}">
+                                <td th:text="${pedido.id}"></td>
+                                <td th:text="${pedido.cliente.nombre}"></td>
+                                <td th:text="${pedido.ocasion}"></td>
+                                <td
+                                    th:text="${#dates.format(pedido.fechaEntrega, 'dd/MM/yyyy')}"></td>
+                                <td th:text="${pedido.precio}"></td>
+                                <td th:text="${pedido.estado}"></td>
+                                <td>
+                                    <a th:href="@{'/pedidos/' + ${pedido.id}}"
+                                        class="btn btn-primary">Detalles</a>
+                                    <!-- Si deseas agregar botones para editar o eliminar, puedes hacerlo aquí -->
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+    </body>
 </html>

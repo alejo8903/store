@@ -1,6 +1,5 @@
 package com.store.store.service.impl;
 
-
 import com.store.store.model.Pedido;
 import com.store.store.repository.PedidoRepository;
 import com.store.store.service.PedidoService;
@@ -34,4 +33,5 @@ public class PedidoServiceImpl implements PedidoService {
     public void deletePedido(Integer id) {
         pedidoRepository.deleteById(id);
     }
+
 }

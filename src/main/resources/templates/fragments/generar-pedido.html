@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<<<<<<< Updated upstream
 <body>
 <div th:fragment="content">
     <div class="container mt-4">
         <h2>Generar Pedido</h2>
-
         <!-- Formulario para la información del cliente -->
         <div class="accordion" id="clienteInfoAccordion">
             <div class="accordion-item">
@@ -33,39 +33,43 @@
                                 <textarea class="form-control" id="dedicatoria" rows="3" placeholder="Escribe una dedicatoria"></textarea>
                             </div>
                         </form>
+=======
+    <body>
+        <div th:fragment="content">
+            <div class="container mt-4">
+                <h2>Generar Pedido</h2>
+
+                <!-- Tabla para los elementos del pedido -->
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Nombre</th>
+                                    <th>Cantidad</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Esto se debe cambiar amas adelante para generar dinamicamente el pedido -->
+                                <tr>
+                                    <td>001</td>
+                                    <td>Rosa Roja</td>
+                                    <td>10</td>
+                                    <td>
+                                        <button
+                                            class="btn btn-warning">Editar</button>
+                                        <button
+                                            class="btn btn-danger">Eliminar</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+>>>>>>> Stashed changes
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Tabla para los elementos del pedido -->
-        <div class="row mt-4">
-            <div class="col-md-12">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>Código</th>
-                        <th>Nombre</th>
-                        <th>Cantidad</th>
-                        <th>Acciones</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <!-- Esto se debe cambiar amas adelante para generar dinamicamente el pedido -->
-                    <tr>
-                        <td>001</td>
-                        <td>Rosa Roja</td>
-                        <td>10</td>
-                        <td>
-                            <button class="btn btn-warning">Editar</button>
-                            <button class="btn btn-danger">Eliminar</button>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
-</body>
+    </body>
 </html>
