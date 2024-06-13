@@ -30,6 +30,16 @@
                         <input type="number" step="0.01" class="form-control mb-2" th:field="*{precioVenta}" placeholder="Precio de venta">
                     </div>
                     <div class="col-md-4">
+                        <select class="form-control mb-2" th:field="*{tipoFlor.id}">
+                            <option th:each="tipoFlor : ${tiposFlor}"
+                                    th:value="${tipoFlor.id}"
+                                    th:title="${tipoFlor.descripcion}"
+                                    th:text="${tipoFlor.nombre}"></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
                         <button class="btn btn-primary mb-2" type="submit">Agregar Producto</button>
                     </div>
                 </div>
@@ -66,8 +76,9 @@
                         <td th:text="${producto.precioCompra}"></td>
                         <td th:text="${producto.precioVenta}"></td>
                         <td>
-                            <button class="btn btn-warning">Editar</button>
-                            <button class="btn btn-danger">Eliminar</button>
+                            <form th:action="@{/inventario/eliminar/{id}(id=${producto.id})}" method="get" style="display: inline;">
+                                <button class="btn btn-danger" type="submit">Eliminar</button>
+                            </form>
                         </td>
                     </tr>
                     </tbody>
