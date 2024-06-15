@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface PedidoProductoService {
     public List<PedidoProducto> getPedidoProductoByPedido(Pedido pedido);
+
+    // PedidoProducto regisraPedidoProducto();
 }

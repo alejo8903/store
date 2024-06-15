@@ -1,6 +1,5 @@
 package com.store.store.model;
 
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -30,8 +29,4 @@ public class PedidoProducto {
 
     private Integer cantidad;
 
-    private Double total;
-
-
 }
-

@@ -5,6 +5,7 @@ import com.store.store.model.Producto;
 import java.util.List;
 
 public interface ProductoService {
+
     List<Producto> getAllProductos();
 
     Producto saveProducto(Producto producto);
@@ -12,4 +13,7 @@ public interface ProductoService {
     Producto getProductoById(int id);
 
     void deleteProductoById(int id);
+
+    List<Producto> buscarPorNombre(String nombre);
+
 }

@@ -19,6 +19,9 @@ public class Cliente {
     private Integer id;
 
     @Column(nullable = false)
+    private String documento;
+
+    @Column(nullable = false)
     private String nombre;
 
     @Column(nullable = false)

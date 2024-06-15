@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -18,7 +16,8 @@ public class HomeController {
     private ProductoService productoService;
 
     @GetMapping("/")
-    public String index() {
+    public String index(Model model) {
+        model.addAttribute("contentTemplate", "fragments/home");
         return "index";
     }
 
@@ -26,18 +25,14 @@ public class HomeController {
     public String inventario(Model model) {
         model.addAttribute("producto", new Producto());
         model.addAttribute("productos", productoService.getAllProductos());
-        return "fragments/inventario :: content";
-    }
-
-    @PostMapping("/inventario")
-    public String saveProducto(@ModelAttribute Producto producto) {
-        productoService.saveProducto(producto);
-        return "redirect:/inventario";
+        model.addAttribute("contentTemplate", "fragments/inventario");
+        return "index";
     }
 
     @GetMapping("/generar-pedido")
-    public String generarPedido() {
-        return "fragments/generar-pedido :: content";
+    public String generarPedido(Model model) {
+        model.addAttribute("contentTemplate", "fragments/generar-pedido");
+        return "index";
     }
 
     @GetMapping("/programar-pedidos")
