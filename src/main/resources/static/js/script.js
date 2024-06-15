@@ -6,3 +6,4 @@ function loadContent(url) {
         })
         .catch(error => console.error('Error al cargar el contenido:', error));
 }
+

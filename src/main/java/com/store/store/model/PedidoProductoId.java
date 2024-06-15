@@ -2,7 +2,6 @@ package com.store.store.model;
 
 import java.io.Serializable;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,6 +17,5 @@ public class PedidoProductoId implements Serializable {
 
     private Integer idPedido;
     private Integer idProducto;
-
 
 }

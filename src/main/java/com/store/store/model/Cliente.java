@@ -1,7 +1,5 @@
 package com.store.store.model;
 
-import java.util.List;
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,7 +18,10 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column( nullable = false)
+    @Column(nullable = false)
+    private String documento;
+
+    @Column(nullable = false)
     private String nombre;
 
     @Column(nullable = false)

@@ -1,25 +1,29 @@
 package com.store.store.controller;
 
-import com.store.store.model.Empleado;
-import com.store.store.model.Pedido;
-import com.store.store.model.PedidoProducto;
-import com.store.store.service.EmpleadoService;
-import com.store.store.service.EntregaService;
-import com.store.store.service.PedidoProductoService;
-import com.store.store.service.PedidoService;
+import com.store.store.dto.PedidoDTO;
+import com.store.store.model.*;
+import com.store.store.service.*;
+import com.store.store.service.impl.PedidoServiceImpl;
+
+import lombok.Setter;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
+@Setter
 @Controller
 @RequestMapping("/pedidos")
 public class PedidoController {
 
+    private String mensaje;
+
     @Autowired
-    private PedidoService pedidoService;
+    private PedidoServiceImpl pedidoService;
 
     @Autowired
     private EmpleadoService empleadoService;
@@ -28,7 +32,6 @@ public class PedidoController {
     EntregaService entregaService;
     @Autowired
     private PedidoProductoService pedidoProductoService;
-
 
     @GetMapping("/")
     public String getAllPedidos(Model model) {
@@ -48,8 +51,6 @@ public class PedidoController {
         return "index";
     }
 
-
-
     @GetMapping("/{id}")
     public String getPedidoById(@PathVariable("id") Integer id, Model model) {
         Pedido pedido = pedidoService.getPedidoById(id);
@@ -60,10 +61,36 @@ public class PedidoController {
         return "index";
     }
 
+    // jose
+    @GetMapping("/add")
+    public String addPedido(Model model) {
+        model.addAttribute("contentTemplate", "fragments/form-add-pedido");
+        return "index";
+    }
+
+    // jose
+
+    @PostMapping("/registrar")
+    public String registrarPedido(@RequestBody PedidoDTO pedidoDTO, RedirectAttributes redirectAttributes) {
+        try {
+            pedidoService.registrarPedido(pedidoDTO);
+            redirectAttributes.addFlashAttribute("mensaje", "Pedido registrado exitosamente");
+        } catch (RuntimeException e) {
+            redirectAttributes.addFlashAttribute("error", "Error al registrar el pedido: " + e.getMessage());
+        }
+        return "redirect:/pedidos/add"; // Redirige a la URL de la vista
+    }
+
+    @ExceptionHandler(RuntimeException.class)
+    public String handleRuntimeException(RuntimeException e, RedirectAttributes redirectAttributes) {
+        redirectAttributes.addFlashAttribute("error", "Error inesperado al procesar la solicitud: " + e.getMessage());
+        return "redirect:/pedidos/add";
+    }
+
     @PostMapping("/save")
     public String saveAsignarDespacho(@RequestParam("pedidoId") Integer pedidoId,
-                                      @RequestParam("empleadoId") Integer empleadoId,
-                                      @RequestParam("ruta") String ruta) {
+            @RequestParam("empleadoId") Integer empleadoId,
+            @RequestParam("ruta") String ruta) {
         entregaService.asignarEntrega(pedidoId, empleadoId, ruta);
         return "redirect:/pedidos/";
     }

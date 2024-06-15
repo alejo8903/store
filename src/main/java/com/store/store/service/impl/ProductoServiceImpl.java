@@ -1,6 +1,5 @@
 package com.store.store.service.impl;
 
-
 import com.store.store.model.Producto;
 import com.store.store.repository.ProductoRepository;
 import com.store.store.service.ProductoService;
@@ -33,5 +32,10 @@ public class ProductoServiceImpl implements ProductoService {
     @Override
     public void deleteProductoById(int id) {
         productoRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Producto> buscarPorNombre(String nombre) {
+        return productoRepository.findByNombreContaining(nombre);
     }
 }

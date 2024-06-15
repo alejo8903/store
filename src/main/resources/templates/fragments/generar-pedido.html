@@ -1,70 +1,91 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<body>
-<div th:fragment="content">
-    <div class="container mt-4">
-        <h2>Generar Pedido</h2>
-        <!-- Formulario para la información del cliente -->
-        <div class="accordion" id="clienteInfoAccordion">
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="clienteInfoHeading">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#clienteInfoCollapse" aria-expanded="true" aria-controls="clienteInfoCollapse">
-                        Información del Cliente
-                    </button>
-                </h2>
-                <div id="clienteInfoCollapse" class="accordion-collapse collapse" aria-labelledby="clienteInfoHeading" data-bs-parent="#clienteInfoAccordion">
-                    <div class="accordion-body">
-                        <form>
-                            <div class="mb-3">
-                                <label for="nombre" class="form-label">Nombre</label>
-                                <input type="text" class="form-control" id="nombre" placeholder="Nombre del cliente">
+    <body>
+        <div th:fragment="content">
+            <div class="container mt-4">
+                <h2>Generar Pedido</h2>
+                <!-- Formulario para la información del cliente -->
+                <!-- <div class="accordion" id="clienteInfoAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="clienteInfoHeading">
+                            <button class="accordion-button" type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#clienteInfoCollapse"
+                                aria-expanded="true"
+                                aria-controls="clienteInfoCollapse">
+                                Información del Cliente
+                            </button>
+                        </h2>
+                        <div id="clienteInfoCollapse"
+                            class="accordion-collapse collapse"
+                            aria-labelledby="clienteInfoHeading"
+                            data-bs-parent="#clienteInfoAccordion">
+                            <div class="accordion-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="nombre"
+                                            class="form-label">Nombre</label>
+                                        <input type="text" class="form-control"
+                                            id="nombre"
+                                            placeholder="Nombre del cliente">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="telefono"
+                                            class="form-label">Teléfono</label>
+                                        <input type="text" class="form-control"
+                                            id="telefono"
+                                            placeholder="Teléfono del cliente">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="direccion"
+                                            class="form-label">Dirección</label>
+                                        <input type="text" class="form-control"
+                                            id="direccion"
+                                            placeholder="Dirección del cliente">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="dedicatoria"
+                                            class="form-label">Dedicatoria</label>
+                                        <textarea class="form-control"
+                                            id="dedicatoria" rows="3"
+                                            placeholder="Escribe una dedicatoria"></textarea>
+                                    </div>
+                                </form>
                             </div>
-                            <div class="mb-3">
-                                <label for="telefono" class="form-label">Teléfono</label>
-                                <input type="text" class="form-control" id="telefono" placeholder="Teléfono del cliente">
-                            </div>
-                            <div class="mb-3">
-                                <label for="direccion" class="form-label">Dirección</label>
-                                <input type="text" class="form-control" id="direccion" placeholder="Dirección del cliente">
-                            </div>
-                            <div class="mb-3">
-                                <label for="dedicatoria" class="form-label">Dedicatoria</label>
-                                <textarea class="form-control" id="dedicatoria" rows="3" placeholder="Escribe una dedicatoria"></textarea>
-                            </div>
-                        </form>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- Tabla para los elementos del pedido -->
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Nombre</th>
+                                    <th>Cantidad</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Esto se debe cambiar amas adelante para generar dinamicamente el pedido -->
+                                <tr>
+                                    <td>001</td>
+                                    <td>Rosa Roja</td>
+                                    <td>10</td>
+                                    <td>
+                                        <button
+                                            class="btn btn-warning">Editar</button>
+                                        <button
+                                            class="btn btn-danger">Eliminar</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Tabla para los elementos del pedido -->
-        <div class="row mt-4">
-            <div class="col-md-12">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>Código</th>
-                        <th>Nombre</th>
-                        <th>Cantidad</th>
-                        <th>Acciones</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <!-- Esto se debe cambiar amas adelante para generar dinamicamente el pedido -->
-                    <tr>
-                        <td>001</td>
-                        <td>Rosa Roja</td>
-                        <td>10</td>
-                        <td>
-                            <button class="btn btn-warning">Editar</button>
-                            <button class="btn btn-danger">Eliminar</button>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
-</body>
+    </body>
 </html>

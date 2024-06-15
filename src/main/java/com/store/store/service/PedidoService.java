@@ -1,7 +1,7 @@
 package com.store.store.service;
 
+import com.store.store.dto.PedidoDTO;
 import com.store.store.model.Pedido;
-import com.store.store.model.PedidoProducto;
 
 import java.util.List;
 
@@ -11,7 +11,8 @@ public interface PedidoService {
 
     Pedido getPedidoById(Integer id);
 
-    Pedido savePedido(Pedido pedido);
+    // List<Producto> productos
+    Pedido registrarPedido(PedidoDTO pedidoDTO);
 
     void deletePedido(Integer id);
 
